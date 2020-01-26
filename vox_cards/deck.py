@@ -48,7 +48,7 @@ CARD_DATA = {
         {"suit": 1, "value": 11}, 
         {"suit": 1, "value": 12}, 
         {"suit": 1, "value": 13}, 
-        {"suit": 1, "value": 14}, 
+        {"suit": 1, "value": 1}, 
         {"suit": 3, "value": 2}, 
         {"suit": 3, "value": 3}, 
         {"suit": 3, "value": 4}, 
@@ -85,7 +85,7 @@ class Deck:
 
         
 
-    def deal(self, amount=1):
+    def deal(self, amount=7):
         """
         This method of dealing is superior to drawing
         x amount of random.choice(deck) because it
