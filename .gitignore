@@ -1,7 +1,7 @@
-
 dist/vox_cards-0.0.1-py3-none-any.whl
 dist/vox_cards-0.0.1.tar.gz
 vox_cards.egg-info/dependency_links.txt
 vox_cards.egg-info/PKG-INFO
 vox_cards.egg-info/SOURCES.txt
 vox_cards.egg-info/top_level.txt
+build
