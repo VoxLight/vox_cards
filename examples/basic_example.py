@@ -1,4 +1,4 @@
-from vox_cards.deck import Deck
+import vox_cards.deck as cards
 
 deck = cards.Deck(2) # Pass the number of hands to construct this deck with.
 
