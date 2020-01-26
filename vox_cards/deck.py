@@ -8,7 +8,6 @@ from .card import Card
 from .hand import Hand
 
 CARD_DATA = {
-    "origin": "https://gist.github.com/darthneel/00e8966f45ef2b64652985d78d11443f", 
     "cards": [
         {"suit": 2, "value": 2}, 
         {"suit": 2, "value": 3}, 
@@ -75,9 +74,12 @@ class Deck:
     deck_data = CARD_DATA
 
     default_deck = [Card(d) for d in deck_data["cards"]]
+    joker = Card(deck_data["joker"])
 
     def __init__(self, hands=1, jokers=False):
-        self.cards = Deck.default_deck 
+        self.cards = Deck.default_deck
+        if jokers:
+            self.cards += [Deck.joker]*2
         self.hands = [Hand(self) for _ in range(hands)] 
         self.drawn_cards = []
         self.discarded_cards = []
@@ -95,7 +97,7 @@ class Deck:
         """
         for _ in range(amount):
             for hand in self.hands:
-                hand.draw(self)
+                hand.draw()
 
     def shuffle(self, new_deck=False, new_hands=True):
         if new_hands:
