@@ -62,9 +62,7 @@ CARD_DATA = {
         {"suit": 3, "value": 13}, 
         {"suit": 3, "value": 1}
     ], 
-    "joker": [
-        {"suit": 4, "value": 0}
-    ]
+    "joker": {"suit": 4, "value": 0}
 }
 
 
@@ -110,12 +108,9 @@ class Deck:
             self.drawn_cards = []
             self.cards = Deck.default_deck
         
-
-        cut1, cut2 = self.cards[:len(self.cards)//2], self.cards[len(self.cards)//2:]
-        self.cards = []
-        for _ in range(len(self.cards)//2):
-            self.cards.append(cut1.pop(cut1.index(random.choice(cut1))))
-            self.cards.append(cut2.pop(cut2.index(random.choice(cut2))))
+        cards = list(self.cards)
+        random.shuffle(cards)
+        self.cards = cards
 
     def __iter__(self):
         return iter(self.cards)
