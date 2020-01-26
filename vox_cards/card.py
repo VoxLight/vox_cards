@@ -21,25 +21,13 @@ class Card:
         if self.value == 0:
             self.text = "Joker"
         elif self.value == 1:
-            self.text == "Ace"
+            self.text = "Ace"
         elif self.value == 11:
-            self.text == "Jack"
+            self.text = "Jack"
         elif self.value == 12:
-            self.text == "Queen"
+            self.text = "Queen"
         elif self.value == 13:
-            self.text == "King"
+            self.text = "King"
         else:
             self.text = str(self.value)
         self.full = f"{self.text} of {str(self.suit)}"
-
-
-
-if __name__ == "__main__":
-    with open("./deck_data_new.json", 'r') as f:
-        deck_data = json.load(f)
-    
-    cards = [Card(card) for card in deck_data["cards"]]
-
-    for card in cards:
-        print(str(card.suit))
-
