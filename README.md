@@ -6,7 +6,7 @@ card games without worrying about creating ways to handle the decks, cards, and 
 Install using pip:
 `py -m pip install vox_cards`
 
-### Usage
+### Basic Usage
 ```Python
 from vox_cards.deck import Deck
 
@@ -34,6 +34,61 @@ player_2.discard(2)
 player_1.discard(player_1[0])
 player_2.discard(player_2[0])
 ```
+
+##### More complex use case
+Here is a more complex use case that features the main components of this module. It doesn't use any logic, but hopefully it gives you an idea of some use cases for this project.
+```Python
+import vox_cards.deck as cards
+
+deck = cards.Deck(3)
+
+for _ in range(3):
+    deck.shuffle()
+
+player_1, player_2, river = deck.hands
+
+for _ in range(2):
+    player_1.draw()
+    player_2.draw()
+    
+river.draw(3)
+river.draw()
+river.draw()
+
+print("\nPlayer 1's hand:")
+for card in player_1:
+    print(card.full)
+    
+print("\nPlayer 2's hand:")
+for card in player_2:
+    print(card.full)
+    
+print("\n\nAnd the river is:")
+for card in river:
+    print(card.full)
+```
+
+Here is the output for the code above:
+```Python
+>>>py example.py
+Player 1's hand:
+Queen of Spades
+Jack of Spades
+
+Player 2's hand:
+6 of Clubs
+8 of Spades
+
+
+And the river is:
+6 of Hearts
+8 of Clubs
+5 of Hearts
+4 of Hearts
+9 of Spades
+```
+
+Looks like player 2 wins with a 2-pair, how fitting.
 
 ### Documentation
 This entire project is still a WIP and has not been officially released yet.
