@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="vox_cards", # Replace with your own username
-    version="0.0.1",
+    version="0.1.1",
     author="VoxLight",
     author_email="tkkt392@gmail.com",
     description="A dependancy free deck, card, and hand manager.",
