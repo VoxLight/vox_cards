@@ -22,7 +22,7 @@ class Hand:
 
     def discard(self, to_discard=1):
         if type(to_discard) == int:
-            if to_discard == self.hand_count:
+            if to_discard == self.card_count:
                 self.deck.discarded_cards += self.cards
                 self.cards = []
             else:
@@ -33,22 +33,28 @@ class Hand:
                         )
                     )
         elif type(to_discard) == Card:
-            self.deck.discarded_cards.append(
-                self.cards.pop(
-                    self.cards.index(to_discard)
+            try:
+                self.deck.discarded_cards.append(
+                    self.cards.pop(
+                        self.cards.index(to_discard)
+                    )
                 )
-            )
+            except ValueError as e:
+                print(e)
 
 
 
-    def draw(self, deck):
+    def draw(self, deck, amount=1):
         """
         Refer to deck.deal docstring
 
         Simulates drawing from the top of
         the deck, rather than pulling a random card.
         """
-        card = deck.cards.pop()
-        self.deck.drawn_cards.append(card)
-        self.cards.append(card)
-        return card
+        cards = []
+        for _ in range(amount):
+            card = deck.cards.pop()
+            self.deck.drawn_cards.append(card)
+            self.cards.append(card)
+            cards.append(card)
+        return cards
