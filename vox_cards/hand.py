@@ -2,7 +2,7 @@
 import random
 
 # locals
-from card import Card
+from .card import Card
 
 class Hand:
     def __init__(self, deck, cards=[]):
@@ -13,7 +13,7 @@ class Hand:
         self._hand_count = len(cards)
     
     def __iter__(self):
-        return self.cards
+        return iter(self.cards)
 
     @property
     def card_count(self):
@@ -48,7 +48,7 @@ class Hand:
         Simulates drawing from the top of
         the deck, rather than pulling a random card.
         """
-        card = deck.pop()
+        card = deck.cards.pop()
         self.deck.drawn_cards.append(card)
         self.cards.append(card)
         return card
