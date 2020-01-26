@@ -34,3 +34,9 @@ player_2.discard(2)
 player_1.discard(player_1[0])
 player_2.discard(player_2[0])
 ```
+
+### Documentation
+This entire project is still a WIP and has not been officially released yet.
+Full documentation will come for this project whenever it has been released
+in a stable state. Until then, refer to the usage examples and the github
+repo for most use cases.
