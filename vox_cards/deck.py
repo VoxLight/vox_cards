@@ -3,8 +3,8 @@ import random
 import json
 
 # locals
-from .card import Card
-from .hand import Hand
+from card import Card
+from hand import Hand
 
 
 
