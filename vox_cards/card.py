@@ -11,13 +11,14 @@ class Suit(Enum):
 
     def __str__(self):
         return self.name.title()
+        
 
 
 class Card:
     def __init__(self, card_data):
         self._data = card_data
-        self.value = card_data["value"]
-        self.suit = Suit(card_data["suit"])
+        self.value = self._data["value"]
+        self.suit = Suit(self._data["suit"])
         if self.value == 0:
             self.text = "Joker"
         elif self.value == 1:
@@ -31,3 +32,4 @@ class Card:
         else:
             self.text = str(self.value)
         self.full = f"{self.text} of {str(self.suit)}"
+        
