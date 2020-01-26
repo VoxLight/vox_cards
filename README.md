@@ -31,8 +31,8 @@ player_2.discard(2)
 
 
 # You can also pass a card instance to hand.discard for discarding specific card(s).
-player_1.discard(player_1[0])
-player_2.discard(player_2[0])
+player_1.discard(player_1.cards[0])
+player_2.discard(player_2.cards[0])
 ```
 
 ##### More complex use case
