@@ -3,8 +3,8 @@ import random
 import json
 
 # locals
-from card import Card
-from hand import Hand
+from .card import Card
+from .hand import Hand
 
 
 
@@ -15,9 +15,12 @@ class Deck:
     default_deck = [Card(d) for d in deck_data["cards"]]
 
     def __init__(self, hands=1, jokers=False):
-        self.cards = [] # TODO: fill with instances of Card
-        self.hands = [Hand() for _ in range(hands)] # TODO: fill with instances of Hand
+        self.cards = Deck.default_deck 
+        self.hands = [Hand(self) for _ in range(hands)] 
+        self.drawn_cards = []
+        self.discarded_cards = []
         self.is_shuffled = False
+
         
 
     def deal(self, amount=1):
@@ -33,13 +36,20 @@ class Deck:
                 hand.draw(self)
 
     def shuffle(self, new_deck=False, new_hands=True):
+        if new_hands:
+            for hand in self.hands:
+                hand.discard(hand.card_count)
+            self.cards += self.discarded_cards
+            
         if new_deck:
-            if new_hands:
-                for hand in self.hands:
-                    hand.discard(hand.card_count)
+            self.discarded_cards = []
+            self.drawn_cards = []
+            self.cards = Deck.default_deck
+        
+
         cut1, cut2 = self.cards[:len(self.cards)//2], self.cards[len(self.cards)//2:]
         self.cards = []
-        for i in range(len(self.cards)//2):
+        for _ in range(len(self.cards)//2):
             self.cards.append(cut1.pop(cut1.index(random.choice(cut1))))
             self.cards.append(cut2.pop(cut2.index(random.choice(cut2))))
 

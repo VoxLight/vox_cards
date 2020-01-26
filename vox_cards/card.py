@@ -1,3 +1,4 @@
+# builtins
 from enum import Enum
 import json
 
@@ -40,5 +41,5 @@ if __name__ == "__main__":
     cards = [Card(card) for card in deck_data["cards"]]
 
     for card in cards:
-        print(card.full)
+        print(str(card.suit))
 
