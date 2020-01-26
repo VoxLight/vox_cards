@@ -5,20 +5,20 @@ import random
 from .card import Card
 
 class Hand:
-    def __init__(self, deck, cards=[]):
-        self.cards = cards
+    def __init__(self, deck):
+        self.cards = []
         self.deck = deck
 
         # properties
-        self._hand_count = len(cards)
+        self._card_count = len(self.cards)
     
     def __iter__(self):
         return iter(self.cards)
 
     @property
     def card_count(self):
-        self._hand_count = len(self.cards)
-        return self._hand_count
+        self._card_count = len(self.cards)
+        return self._card_count
 
     def discard(self, to_discard=1):
         if type(to_discard) == int:
@@ -44,7 +44,7 @@ class Hand:
 
 
 
-    def draw(self, deck, amount=1):
+    def draw(self, amount=1):
         """
         Refer to deck.deal docstring
 
@@ -53,7 +53,7 @@ class Hand:
         """
         cards = []
         for _ in range(amount):
-            card = deck.cards.pop()
+            card = self.deck.cards.pop()
             self.deck.drawn_cards.append(card)
             self.cards.append(card)
             cards.append(card)
