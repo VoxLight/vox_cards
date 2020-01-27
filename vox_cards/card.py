@@ -6,9 +6,9 @@ class Suit(Enum):
     """An Enumeration to make handling card suits easier.
 
     :param suit: A number between 0 and 4 denoting the suit, they are diamonds, clubs, hearts, spades, and joker respectively.
-    :type Int: class:`int`
+    :type Int: int
     :return: Returns an enum representing the suit. str(Suit) returns the titlecase representation of the suit name.
-    :rtype: class:`enum.Enum`
+    :rtype: enum.Enum
     """
 
 

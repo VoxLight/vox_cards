@@ -11,7 +11,7 @@ class Hand:
     with a list of your player classes.
 
     :param deck: the deck that this hand belongs to
-    :type deck: class:`vox_cards.deck.Deck`
+    :type deck: Deck
     :return: A Hand class that is iterable.
     :rtype: Hand
     """
@@ -41,7 +41,7 @@ class Hand:
         """Remove [to_discard] amount of cards fromt his hand at random and add them to hand.deck.discarded_cards list.
 
         :param to_discard: Amount of cards to discard, defaults to 1
-        :type to_discard: int(, optional)
+        :type to_discard: int (, optional)
         """
         if type(to_discard) == int:
             if to_discard == self.card_count:
@@ -70,7 +70,7 @@ class Hand:
         """Simulates drawing [amount] of cards from the top of the deck, rather then getting a random card.
 
         :param amount: Number of cards to draw, defaults to 1
-        :type amount: int(, optional)
+        :type amount: int (, optional)
         :return: Returns the card(s) that were drawn.
         :rtype: list of Card
         """

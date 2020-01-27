@@ -61,7 +61,7 @@ class Deck:
         """Deals [amount] cards to all hands.
 
         :param amount: Amount of cards to deal to players, defaults to 7
-        :type amount: class:`int`(, optional)
+        :type amount: int (, optional)
         """
         for _ in range(amount):
             for hand in self.hands:
@@ -71,7 +71,7 @@ class Deck:
         """Shuffle the deck in place.
 
         :param new_deck: Whether or nor to reset the deck back to it's original state, removing all cards from hands, and setting drawn_cards and discarded cards back to empty lists.
-        :type new_deck: class:`bool`
+        :type new_deck: bool (, optional)
         """
 
         if new_deck:
