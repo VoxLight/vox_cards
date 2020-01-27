@@ -8,6 +8,11 @@ from .card import Card
 from .hand import Hand
 
 def generate_card_data():
+    """Generates card data for the class:`Card` class.
+
+    :return: class:`dict` objects with 'suit' and 'value' keys.
+    :rtype: class:`dict`
+    """
     suits = 3
     values = 13
     cur_suit = 0
@@ -26,11 +31,22 @@ JOKER = {"suit": 4, "value": 0}
 
 
 class Deck:
+    """[Summary]
+
+    :param hands: The number of hands to construct the deck with.
+    :type hands: class:`int`
+    :param jokers: Whether or not to construct the deck with 2 additional joker cards.
+    :type jokers: class:`bool`
+    :return: Returns a deck object that is iterable.
+    :rtype: class:`Deck`
+    """
 
     default_deck = [Card(d) for d in generate_card_data()]
     joker = Card(JOKER)
 
     def __init__(self, hands=1, jokers=False):
+        """Constructor method
+        """
         self.cards = Deck.default_deck
         if jokers:
             self.cards += [Deck.joker]*2
@@ -42,30 +58,33 @@ class Deck:
         
 
     def deal(self, amount=7):
-        """
-        This method of dealing is superior to drawing
-        x amount of random.choice(deck) because it
-        keeps the deck in a static order. It simulates
-        having a shuffled deck and dealing from the top
-        to each of the players (hands).
+        """Deals [amount] cards to all hands.
+
+        :param amount: Amount of cards to deal to players, defaults to 7
+        :type amount: class:`int`(, optional)
         """
         for _ in range(amount):
             for hand in self.hands:
                 hand.draw()
 
-    def shuffle(self, new_deck=False, new_hands=True):
-        if new_hands:
+    def shuffle(self, new_deck=False):
+        """Shuffle the deck in place.
+
+        :param new_deck: Whether or nor to reset the deck back to it's original state, removing all cards from hands, and setting drawn_cards and discarded cards back to empty lists.
+        :type new_deck: class:`bool`
+        """
+
+        if new_deck:
             for hand in self.hands:
                 hand.discard(hand.card_count)
             self.cards += self.discarded_cards
-            
-        if new_deck:
             self.discarded_cards = []
             self.drawn_cards = []
             self.cards = Deck.default_deck
         
         cards = list(self.cards)
         random.shuffle(cards)
+        self.is_shuffled = True
         self.cards = cards
 
     def __iter__(self):

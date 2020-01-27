@@ -3,6 +3,15 @@ from enum import Enum
 import json
 
 class Suit(Enum):
+    """An Enumeration to make handling card suits easier.
+
+    :param suit: A number between 0 and 4 denoting the suit, they are diamonds, clubs, hearts, spades, and joker respectively.
+    :type Int: class:`int`
+    :return: Returns an enum representing the suit. str(Suit) returns the titlecase representation of the suit name.
+    :rtype: class:`enum.Enum`
+    """
+
+
     DIAMONDS = 0
     CLUBS = 1
     HEARTS = 2
@@ -15,7 +24,19 @@ class Suit(Enum):
 
 
 class Card:
+    """[Summary]
+
+    :param card_data: A dictionary with a suit and value.
+    :type dict: class:`dict`
+    ...
+    :raises [ErrorType]: [ErrorDescription]
+    ...
+    :return: [ReturnDescription]
+    :rtype: [ReturnType]
+    """
     def __init__(self, card_data):
+        """Constructor method
+        """
         self._data = card_data
         self.value = self._data["value"]
         self.suit = Suit(self._data["suit"])

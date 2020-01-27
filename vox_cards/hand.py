@@ -5,7 +5,19 @@ import random
 from .card import Card
 
 class Hand:
+    """A hand class that gives functionality to drawing, discarding, and holding cards from a deck. 
+    This class should typically not be created, but inheriting from this class to give extended 
+    functionality to a player class is encouraged. You cand replace the Deck().hands property
+    with a list of your player classes.
+
+    :param deck: the deck that this hand belongs to
+    :type deck: class:`vox_cards.deck.Deck`
+    :return: A Hand class that is iterable.
+    :rtype: class:`vox_cards.hand.Hand`
+    """
     def __init__(self, deck):
+        """Constructor method
+        """
         self.cards = []
         self.deck = deck
 
@@ -17,10 +29,20 @@ class Hand:
 
     @property
     def card_count(self):
+        """The number of cards in this hand.
+
+        :return: The length of hand.cards
+        :rtype: class:`int`
+        """
         self._card_count = len(self.cards)
         return self._card_count
 
     def discard(self, to_discard=1):
+        """Remove [to_discard] amount of cards fromt his hand at random and add them to hand.deck.discarded_cards list.
+
+        :param to_discard: Amount of cards to discard, defaults to 1
+        :type to_discard: class:`int`(, optional)
+        """
         if type(to_discard) == int:
             if to_discard == self.card_count:
                 self.deck.discarded_cards += self.cards
@@ -45,11 +67,12 @@ class Hand:
 
 
     def draw(self, amount=1):
-        """
-        Refer to deck.deal docstring
+        """Simulates drawing [amount] of cards from the top of the deck, rather then getting a random card.
 
-        Simulates drawing from the top of
-        the deck, rather than pulling a random card.
+        :param amount: Number of cards to draw, defaults to 1
+        :type amount: class:`int`(, optional)
+        :return: Returns the card(s) that were drawn.
+        :rtype: class:`list` of class:`Card`
         """
         cards = []
         for _ in range(amount):
