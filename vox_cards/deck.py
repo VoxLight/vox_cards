@@ -31,7 +31,7 @@ JOKER = {"suit": 4, "value": 0}
 
 
 class Deck:
-    """[Summary]
+    """A class allowing the control of hands, and storing the cards used.
 
     :param hands: The number of hands to construct the deck with.
     :type hands: class:`int`
