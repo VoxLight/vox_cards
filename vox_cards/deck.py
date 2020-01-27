@@ -10,8 +10,8 @@ from .hand import Hand
 def generate_card_data():
     """Generates card data for the class:`Card` class.
 
-    :return: class:`dict` objects with 'suit' and 'value' keys.
-    :rtype: class:`dict`
+    :return: dict objects with 'suit' and 'value' keys.
+    :rtype: dict
     """
     suits = 3
     values = 13
@@ -34,11 +34,11 @@ class Deck:
     """A class allowing the control of hands, and storing the cards used.
 
     :param hands: The number of hands to construct the deck with.
-    :type hands: class:`int`
+    :type hands: int
     :param jokers: Whether or not to construct the deck with 2 additional joker cards.
-    :type jokers: class:`bool`
+    :type jokers: bool
     :return: Returns a deck object that is iterable.
-    :rtype: class:`Deck`
+    :rtype: Deck
     """
 
     default_deck = [Card(d) for d in generate_card_data()]

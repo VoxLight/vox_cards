@@ -24,15 +24,13 @@ class Suit(Enum):
 
 
 class Card:
-    """[Summary]
+    """A class that represents cards. Should only be created through the deck class, 
+    however inheriting from this class to add additional functionality is encouraged.
 
     :param card_data: A dictionary with a suit and value.
-    :type dict: class:`dict`
-    ...
-    :raises [ErrorType]: [ErrorDescription]
-    ...
-    :return: [ReturnDescription]
-    :rtype: [ReturnType]
+    :type card_data: dict
+    :return: A card class
+    :rtype: Card
     """
     def __init__(self, card_data):
         """Constructor method
