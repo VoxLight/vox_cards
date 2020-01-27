@@ -1,7 +1,0 @@
-.. highlight:: python
-
-----------------
-Install with pip
-----------------
-
->>> py -m pip install vox_cards
