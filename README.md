@@ -8,7 +8,7 @@ Install using pip:
 
 ### Basic Usage
 ```Python
-from vox_cards.deck import Deck
+import vox_cards.deck as cards
 
 deck = cards.Deck(2) # Pass the number of hands to construct this deck with.
 
@@ -31,8 +31,8 @@ player_2.discard(2)
 
 
 # You can also pass a card instance to hand.discard for discarding specific card(s).
-player_1.discard(player_1[0])
-player_2.discard(player_2[0])
+player_1.discard(player_1.cards[0])
+player_2.discard(player_2.cards[0])
 ```
 
 ##### More complex use case
