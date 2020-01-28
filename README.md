@@ -91,7 +91,10 @@ And the river is:
 Looks like player 2 wins with a 2-pair, how fitting.
 
 ### Documentation
-This entire project is still a WIP and has not been officially released yet.
+
+<s>This entire project is still a WIP and has not been officially released yet.
 Full documentation will come for this project whenever it has been released
 in a stable state. Until then, refer to the usage examples and the github
-repo for most use cases.
+repo for most use cases. </s>
+
+For a full list of everything you can do, view the [docs](https://vox-cards.readthedocs.io/en/latest/)
