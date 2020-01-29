@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Deck &#8212; Vox Cards 0.1.3 documentation</title>
+    <title>Deck &#8212; Vox Cards 0.1.8 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -41,15 +41,31 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>hands</strong> (<em>int</em>) – The number of hands to construct the deck with.</p></li>
-<li><p><strong>jokers</strong> (<em>bool</em>) – Whether or not to construct the deck with 2 additional joker cards.</p></li>
+<li><p><strong>hands</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of hands to construct the deck with.</p></li>
+<li><p><strong>jokers</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Whether or not to construct the deck with 2 additional joker cards.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns a deck object that is iterable.</p>
+<dd class="field-even"><p>Returns a <a class="reference internal" href="#vox_cards.deck.Deck" title="vox_cards.deck.Deck"><code class="xref py py-class docutils literal notranslate"><span class="pre">Deck</span></code></a> object that is iterable.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#vox_cards.deck.Deck" title="vox_cards.deck.Deck">Deck</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#vox_cards.deck.Deck" title="vox_cards.deck.Deck"><code class="xref py py-class docutils literal notranslate"><span class="pre">Deck</span></code></a></p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>cards: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></dt><dd><p>The full list of <code class="xref py py-class docutils literal notranslate"><span class="pre">Card</span></code> objects that <code class="xref py py-class docutils literal notranslate"><span class="pre">Hand</span></code> objects draw from.</p>
+</dd>
+<dt>hands: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></dt><dd><p>A list of <code class="xref py py-class docutils literal notranslate"><span class="pre">Hand</span></code> objects that belong to this deck and can draw from it.</p>
+</dd>
+<dt>drawn_cards: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></dt><dd><p>A list of <code class="xref py py-class docutils literal notranslate"><span class="pre">Card</span></code> objects that have already been removed from
+self.cards by either dealing to self.hands or having hands draw from
+this deck. Typically, unless influenced, all cards found in this list
+will always also be in a <code class="xref py py-class docutils literal notranslate"><span class="pre">Hand</span></code></p>
+</dd>
+<dt>discarded_cards: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></dt><dd><p>A list of <code class="xref py py-class docutils literal notranslate"><span class="pre">Card</span></code> objects that have been discarded via the
+hand.discard method.</p>
+</dd>
+<dt>is_shuffled: <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></dt><dd><p>Denotes whether or not the deck has been shuffled via the <a class="reference internal" href="#vox_cards.deck.Deck" title="vox_cards.deck.Deck"><code class="xref py py-class docutils literal notranslate"><span class="pre">Deck</span></code></a>.shuffle method.</p>
 </dd>
 </dl>
 <dl class="method">
@@ -58,7 +74,7 @@
 <dd><p>Deals [amount] cards to all hands.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>amount</strong> (<em>int</em><em> (</em><em>, </em><em>optional</em><em>)</em>) – Amount of cards to deal to players, defaults to 7</p>
+<dd class="field-odd"><p><strong>amount</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> (, optional)) – Amount of <code class="xref py py-class docutils literal notranslate"><span class="pre">Card</span></code> objects to deal to <code class="xref py py-attr docutils literal notranslate"><span class="pre">hands</span></code>, defaults to 7</p>
 </dd>
 </dl>
 </dd></dl>
@@ -69,9 +85,12 @@
 <dd><p>Shuffle the deck in place.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>new_deck</strong> (<em>bool</em><em> (</em><em>, </em><em>optional</em><em>)</em>) – Whether or nor to reset the deck back to it’s original state, removing all cards from hands, and setting drawn_cards and discarded cards back to empty lists.</p>
+<dd class="field-odd"><p><strong>new_deck</strong> – Whether or nor to reset the deck back to it’s original state,</p>
 </dd>
 </dl>
+<p>removing all cards from <code class="xref py py-class docutils literal notranslate"><span class="pre">Hand</span></code> objects in <code class="xref py py-attr docutils literal notranslate"><span class="pre">hands</span></code>, 
+and setting <code class="xref py py-attr docutils literal notranslate"><span class="pre">drawn_cards</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">Deck.discarded_cards</span></code> to empty lists.
+:type new_deck: <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code> (, optional)</p>
 </dd></dl>
 
 </dd></dl>
