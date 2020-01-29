@@ -35,6 +35,7 @@ class Hand:
         """
 
         self.is_dealer = False
+        # TODO:
         # Add functionality to Deck to not deal to
         # hands that have this flag enabled to make it
         # easier to deal to multiple players when one acts
