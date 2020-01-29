@@ -14,25 +14,20 @@ class Hand:
     :type deck: Deck
     :return: A Hand class that is iterable.
     :rtype: Hand
+
+    Attributes
+    ----------
+    cards: :class:`list`
+        The cards currently held in this hand.
+    deck: :class:`Deck`
+        The deck that this hand is playing from. This is set when the hand is created
+        in the Deck constructor and should not be reassigned.
     """
     def __init__(self, deck):
         """Constructor method
         """
         self.cards = []
-        """
-        The cards currently held in this hand.
-
-        :return: A list of Card objects
-        :rtype: List
-        """
         self.deck = deck
-        """
-        The deck that this hand is playing from. This is set when the hand is created
-        in the Deck constructor and should not be reassigned.
-
-        :return: A Deck object.
-        :rtype: Deck
-        """
 
         self.is_dealer = False
         # TODO:

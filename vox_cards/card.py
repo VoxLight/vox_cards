@@ -27,10 +27,21 @@ class Card:
     """A class that represents cards. Should only be created through the deck class, 
     however inheriting from this class to add additional functionality is encouraged.
 
-    :param card_data: A dictionary with a suit and value.
-    :type card_data: dict
-    :return: A card class
-    :rtype: Card
+    :param card_data: A :class:`Dict` with a suit and value.
+    :type card_data: :class:`Dict`
+    :return: A :class:`Card` object.
+    :rtype: :class:`Card`
+
+    Attributes
+    ----------
+    value: :class:`int`
+        The integer representation of the cards value.
+    suit: :class:`Suit`
+        A :class:`Suit` enum denoting the cards suit.
+    text: :class:`str`
+        The string representation of the cards value. (i.e. A, 1, 2, etc.).
+    full: :class:`str`
+        The full name of the card (i.e. "Queen of Hearts")
     """
     def __init__(self, card_data):
         """Constructor method
